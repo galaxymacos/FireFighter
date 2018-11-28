@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
             firePosition = Random.Range(0, fires.Length);
         } while (firePositions.Contains(firePosition));
         GameObject curFire = Instantiate(fire, fires[firePosition].transform.position,Quaternion.identity);
+        curFire.transform.SetParent(fires[firePosition].transform);
         curFire.SetActive(true);
         firePositions.Add(firePosition);
         fireLeft--;
@@ -79,9 +80,9 @@ public class GameManager : MonoBehaviour
 
     void MoveToNextLevel()
     {
-        for (int i = 0; i < 14; i++) {
-            if (transform.childCount > 0&&!fires[i].transform.GetChild(0).CompareTag("Fire")) {
-                Instantiate(fire, fires[i].transform.position,Quaternion.identity);
+        foreach (GameObject fireHolder in fires) {
+            foreach (Transform child in fireHolder.transform) {
+                Destroy(child.transform);
             }
         }
 

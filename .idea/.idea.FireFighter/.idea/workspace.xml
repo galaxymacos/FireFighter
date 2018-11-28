@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1b451c52-7074-41ae-881d-19cfd9060558" name="Default Changelist" comment="" />
+    <list default="true" id="1b451c52-7074-41ae-881d-19cfd9060558" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,37 +13,99 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Extinguishing.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/ParticleSystems/Scripts/ParticleSystemMultiplier.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="576">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="432">
+              <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
               <folding>
-                <marker date="1543356812357" expanded="false" signature="6:162" ph="..." />
-                <marker date="1543356812357" expanded="true" signature="206:2905" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="759:1135" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="1154:1209" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="1261:1413" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="1333:1407" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="1436:2347" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="1684:2033" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="1892:1996" ph="/* mainModule.startLifetimeMultiplier *= Mathf.Lerp(multiplier, 1, 0.5f); ... */" />
-                <marker date="1543356812357" expanded="true" signature="2103:2341" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="2371:2901" ph="{...}" />
-                <marker date="1543356812357" expanded="true" signature="2659:2895" ph="{...}" />
+                <marker date="1543273908653" expanded="false" signature="6:32" ph="..." />
+                <marker date="1543273908653" expanded="true" signature="71:791" ph="{...}" />
+                <marker date="1543273908653" expanded="true" signature="131:789" ph="{...}" />
+                <marker date="1543273908653" expanded="true" signature="292:783" ph="{...}" />
+                <marker date="1543273908653" expanded="true" signature="426:773" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/ParticleSystemDestroyer.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1121">
+              <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+              <folding>
+                <marker date="1543380570959" expanded="false" signature="6:93" ph="..." />
+                <marker date="1543380570959" expanded="true" signature="132:1763" ph="{...}" />
+                <marker date="1543380570959" expanded="true" signature="191:1761" ph="{...}" />
+                <marker date="1543380570959" expanded="true" signature="206:386" ph="/* allows a particle system to exist for a specified duration, ... */" />
+                <marker date="1543380570959" expanded="true" signature="574:1627" ph="{...}" />
+                <marker date="1543380570959" expanded="true" signature="775:897" ph="{...}" />
+                <marker date="1543380570959" expanded="true" signature="1078:1141" ph="{...}" />
+                <marker date="1543380570959" expanded="true" signature="1262:1380" ph="{...}" />
+                <marker date="1543380570959" expanded="true" signature="1656:1755" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Extinguishing.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1680">
+              <caret line="75" column="13" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="13" />
+              <folding>
+                <marker date="1543376832763" expanded="false" signature="6:162" ph="..." />
+                <marker date="1543376832763" expanded="true" signature="206:2990" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="792:1168" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="1187:1242" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="1294:1446" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="1366:1440" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="1469:2432" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="1717:2066" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="1925:2029" ph="/* mainModule.startLifetimeMultiplier *= Mathf.Lerp(multiplier, 1, 0.5f); ... */" />
+                <marker date="1543376832763" expanded="true" signature="2153:2426" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="2456:2986" ph="{...}" />
+                <marker date="1543376832763" expanded="true" signature="2744:2980" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/LoadingScreen.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
+            <state relative-caret-position="288">
+              <caret line="62" column="65" lean-forward="true" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
               <folding>
-                <marker date="1543374550706" expanded="false" signature="6:78" ph="..." />
-                <marker date="1543374550706" expanded="true" signature="123:249" ph="{...}" />
-                <marker date="1543374550706" expanded="true" signature="178:185" ph="{...}" />
-                <marker date="1543374550706" expanded="true" signature="240:247" ph="{...}" />
+                <marker date="1543383409846" expanded="false" signature="6:162" ph="..." />
+                <marker date="1543383409846" expanded="true" signature="204:2934" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="744:897" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="951:1219" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="1043:1140" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="1242:1512" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="1403:1506" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="1543:2116" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="2150:2350" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="2293:2344" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="2378:2708" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="2434:2565" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="2498:2555" ph="{...}" />
+                <marker date="1543383409846" expanded="true" signature="2742:2932" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Cube.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+              <folding>
+                <marker date="1543380896112" expanded="false" signature="6:78" ph="..." />
+                <marker date="1543380896112" expanded="true" signature="114:413" ph="{...}" />
+                <marker date="1543380896112" expanded="true" signature="245:293" ph="{...}" />
+                <marker date="1543380896112" expanded="true" signature="348:411" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -49,14 +113,30 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>fire</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Extinguishing.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/LoadingScreen.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Extinguishing.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Cube.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/ParticleSystems/Scripts/ParticleSystemMultiplier.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/ParticleSystemDestroyer.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/Assets/LoadingScreen.cs" />
         <option value="$PROJECT_DIR$/Assets/Extinguishing.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Standard Assets/Utility/ParticleSystemDestroyer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Cube.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -66,23 +146,24 @@
     </ignored-facets>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="380" />
-    <option name="y" value="-16" />
+    <option name="x" value="-3020" />
+    <option name="y" value="-48" />
     <option name="width" value="2430" />
     <option name="height" value="1620" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="UnityExplorer" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-all-files" value="false" />
+      </pane>
       <pane id="AssemblyExplorer" />
       <pane id="FileSystemExplorer" />
       <pane id="UnityExplorer">
         <option name="show-hidden-items" value="false" />
-      </pane>
-      <pane id="SolutionExplorer">
-        <option name="show-all-files" value="false" />
       </pane>
     </panes>
   </component>
@@ -92,6 +173,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -131,11 +213,12 @@
       <updated>1543266926425</updated>
       <workItem from="1543266931712" duration="656000" />
       <workItem from="1543374585183" duration="90000" />
+      <workItem from="1543374704642" duration="7613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="746000" />
+    <option name="totallyTimeSpent" value="8359000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -147,7 +230,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
+    <frame x="-3846" y="-6" width="1933" height="1053" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24906667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -201,33 +285,110 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Assets/Extinguishing.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding>
-            <marker date="1543356812357" expanded="false" signature="6:162" ph="..." />
-            <marker date="1543356812357" expanded="true" signature="206:2905" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="759:1135" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="1154:1209" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="1261:1413" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="1333:1407" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="1436:2347" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="1684:2033" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="1892:1996" ph="/* mainModule.startLifetimeMultiplier *= Mathf.Lerp(multiplier, 1, 0.5f); ... */" />
-            <marker date="1543356812357" expanded="true" signature="2103:2341" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="2371:2901" ph="{...}" />
-            <marker date="1543356812357" expanded="true" signature="2659:2895" ph="{...}" />
-          </folding>
+        <state relative-caret-position="421">
+          <caret line="69" column="45" lean-forward="true" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/LoadingScreen.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="168">
+          <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="42" column="9" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Cube.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
           <folding>
-            <marker date="1543374550706" expanded="false" signature="6:78" ph="..." />
-            <marker date="1543374550706" expanded="true" signature="123:249" ph="{...}" />
-            <marker date="1543374550706" expanded="true" signature="178:185" ph="{...}" />
-            <marker date="1543374550706" expanded="true" signature="240:247" ph="{...}" />
+            <marker date="1543380896112" expanded="false" signature="6:78" ph="..." />
+            <marker date="1543380896112" expanded="true" signature="114:413" ph="{...}" />
+            <marker date="1543380896112" expanded="true" signature="245:293" ph="{...}" />
+            <marker date="1543380896112" expanded="true" signature="348:411" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/Utility/ParticleSystemDestroyer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1121">
+          <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+          <folding>
+            <marker date="1543380570959" expanded="false" signature="6:93" ph="..." />
+            <marker date="1543380570959" expanded="true" signature="132:1763" ph="{...}" />
+            <marker date="1543380570959" expanded="true" signature="191:1761" ph="{...}" />
+            <marker date="1543380570959" expanded="true" signature="206:386" ph="/* allows a particle system to exist for a specified duration, ... */" />
+            <marker date="1543380570959" expanded="true" signature="574:1627" ph="{...}" />
+            <marker date="1543380570959" expanded="true" signature="775:897" ph="{...}" />
+            <marker date="1543380570959" expanded="true" signature="1078:1141" ph="{...}" />
+            <marker date="1543380570959" expanded="true" signature="1262:1380" ph="{...}" />
+            <marker date="1543380570959" expanded="true" signature="1656:1755" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Standard Assets/ParticleSystems/Scripts/ParticleSystemMultiplier.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding>
+            <marker date="1543273908653" expanded="false" signature="6:32" ph="..." />
+            <marker date="1543273908653" expanded="true" signature="71:791" ph="{...}" />
+            <marker date="1543273908653" expanded="true" signature="131:789" ph="{...}" />
+            <marker date="1543273908653" expanded="true" signature="292:783" ph="{...}" />
+            <marker date="1543273908653" expanded="true" signature="426:773" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Extinguishing.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="75" column="13" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="13" />
+          <folding>
+            <marker date="1543376832763" expanded="false" signature="6:162" ph="..." />
+            <marker date="1543376832763" expanded="true" signature="206:2990" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="792:1168" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="1187:1242" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="1294:1446" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="1366:1440" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="1469:2432" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="1717:2066" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="1925:2029" ph="/* mainModule.startLifetimeMultiplier *= Mathf.Lerp(multiplier, 1, 0.5f); ... */" />
+            <marker date="1543376832763" expanded="true" signature="2153:2426" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="2456:2986" ph="{...}" />
+            <marker date="1543376832763" expanded="true" signature="2744:2980" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="62" column="65" lean-forward="true" selection-start-line="62" selection-start-column="65" selection-end-line="62" selection-end-column="65" />
+          <folding>
+            <marker date="1543383409846" expanded="false" signature="6:162" ph="..." />
+            <marker date="1543383409846" expanded="true" signature="204:2934" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="744:897" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="951:1219" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="1043:1140" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="1242:1512" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="1403:1506" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="1543:2116" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="2150:2350" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="2293:2344" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="2378:2708" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="2434:2565" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="2498:2555" ph="{...}" />
+            <marker date="1543383409846" expanded="true" signature="2742:2932" ph="{...}" />
           </folding>
         </state>
       </provider>

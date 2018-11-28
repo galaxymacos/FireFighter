@@ -13,9 +13,7 @@
         <e p="ame_nebula" t="Include">
           <e p="ame_nebula.shader" t="Include" />
         </e>
-        <e p="Extinguishing.cs" t="Include" />
-        <e p="GameManager.cs" t="Include" />
-        <e p="LoadingScreen.cs" t="Include" />
+        <e p="Cube.cs" t="Include" />
         <e p="SampleScenes" t="Include">
           <e p="Menu" t="Include">
             <e p="Scripts" t="Include">
@@ -34,6 +32,12 @@
           <e p="Shaders" t="Include">
             <e p="Skybox-Procedural.shader" t="Include" />
           </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Extinguishing.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="LoadingScreen.cs" t="Include" />
+          <e p="WaterHose.cs" t="Include" />
         </e>
         <e p="Standard Assets" t="Include">
           <e p="2D" t="Include">
@@ -344,7 +348,6 @@
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
         </e>
-        <e p="WaterHose.cs" t="Include" />
       </e>
       <e p="FireFighter.sln" t="IncludeFlat" />
       <e p="Library" t="ExcludeRecursive" />
