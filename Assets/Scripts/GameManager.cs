@@ -8,12 +8,12 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour {
     private int currentLevel = 0;
-    [SerializeField] private GameObject[] levels;
+    [SerializeField] private LevelInfo[] LevelInfos;
     [SerializeField] private GameObject[] fires;
     [SerializeField] private int[] maxFireNumOfLevel;
     private int fireLeft;
     private int fireInScene;
-    [SerializeField] private float damagePerFirePerSecond = 1;
+    [SerializeField] private float damageSpeed = 1;
     [SerializeField] private float fireSpawnInterval = 8f;
     private float fireSpawnTimeRemain = 0f;
 
@@ -68,13 +68,13 @@ public class GameManager : MonoBehaviour {
 
     private void UpdateWaterText() {
         if (Input.GetButton("Fire1")) {
-            water -= waterLossSpeed * Time.deltaTime;
+            water -= LevelInfos[currentLevel].waterLossSpeed * Time.deltaTime;
         }
         waterText.text = (int)water + "%";
     }
 
     private void UpdateDamageText() {
-        damage += fireInScene * damagePerFirePerSecond * Time.deltaTime;
+        damage += fireInScene * LevelInfos[currentLevel].damageSpeed * Time.deltaTime;
         damageText.text = (int)damage + "%";
     }
 
@@ -102,9 +102,10 @@ public class GameManager : MonoBehaviour {
 
     void SetUpScene() {
         firePositions = new List<int>();
-        fireLeft = maxFireNumOfLevel[currentLevel];
+//        fireLeft = maxFireNumOfLevel[currentLevel];
+        fireLeft = LevelInfos[currentLevel].maxFireNum;
         fireInScene = 0;
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < LevelInfos[currentLevel].startFire; i++) {
             // Randomly spawn two fires at the beginning of the game
             RandomlySpawnFire();
         }
@@ -114,7 +115,7 @@ public class GameManager : MonoBehaviour {
 
     void RandomlySpawnFire() {
         // no empty place to store fire
-        if (firePositions.Count >= 14 || fireLeft <= 0)
+        if (firePositions.Count >= LevelInfos[currentLevel].FireLimitedInScene || fireLeft <= 0)
             return;
 
         int firePosition;

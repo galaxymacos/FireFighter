@@ -2206,13 +2206,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed0b235fd6fe643b837b83016e5f18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  LevelInfos:
+  - {fileID: 11400000, guid: b1047c642d6b5d04e91d9e9e5902339c, type: 2}
+  - {fileID: 11400000, guid: 87a02ea108a4454408268f2c2e3d2f17, type: 2}
+  - {fileID: 11400000, guid: 1da02076535f92a458fb572136b28b29, type: 2}
+  - {fileID: 11400000, guid: 23c1b91625cec0043b7139190e43576b, type: 2}
+  - {fileID: 11400000, guid: 8409d9dcae959d44fbbaceaa51487903, type: 2}
+  - {fileID: 11400000, guid: 512941eb0eb5d67409c1a1e17b3cbf16, type: 2}
   fires:
   - {fileID: 312014731}
   - {fileID: 401483581}
@@ -2229,7 +2229,7 @@ MonoBehaviour:
   - {fileID: 717429489}
   - {fileID: 941721877}
   maxFireNumOfLevel: 010000000200000003000000040000000500000006000000
-  damagePerFirePerSecond: 1
+  damageSpeed: 1
   fireSpawnInterval: 8
   fire: {fileID: 1967958283264816, guid: fbcda8de2a75aee4ea82c7f119bb3aad, type: 2}
   loadingScreen: {fileID: 932539849}
