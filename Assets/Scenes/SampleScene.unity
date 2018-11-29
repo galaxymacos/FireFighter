@@ -2210,6 +2210,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   fires:
   - {fileID: 312014731}
   - {fileID: 401483581}
@@ -2225,10 +2228,16 @@ MonoBehaviour:
   - {fileID: 1801944760}
   - {fileID: 717429489}
   - {fileID: 941721877}
-  maxFireNumOfLevel: 030000000400000005000000
+  maxFireNumOfLevel: 010000000200000003000000040000000500000006000000
+  damagePerFirePerSecond: 1
   fireSpawnInterval: 8
   fire: {fileID: 1967958283264816, guid: fbcda8de2a75aee4ea82c7f119bb3aad, type: 2}
   loadingScreen: {fileID: 932539849}
+  fireText: {fileID: 730289702}
+  waterText: {fileID: 1879575589}
+  waterLossSpeed: 1
+  damageText: {fileID: 895419168}
+  timeText: {fileID: 1351162549}
 --- !u!4 &1867264783
 Transform:
   m_ObjectHideFlags: 0

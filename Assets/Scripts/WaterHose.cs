@@ -5,10 +5,13 @@ using UnityEngine;
 public class WaterHose : MonoBehaviour {
 
     private AudioSource audioS;
+
+    private GameManager GameManager;
 	// Use this for initialization
 	void Start () {
         audioS = GetComponent<AudioSource>();
         audioS.volume = 0;
+        GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 	}
 	
 	// Update is called once per frame
