@@ -15,4 +15,4 @@ MonoBehaviour:
   waterLossSpeed: 1
   startFire: 2
   maxFireNum: 3
-  FireLimitedInScene: 1
+  FireLimitedInScene: 2

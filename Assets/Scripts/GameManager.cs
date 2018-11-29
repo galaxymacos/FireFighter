@@ -38,6 +38,8 @@ public class GameManager : MonoBehaviour {
 
     internal int PlayerScore = 0;
 
+    [SerializeField] private GameObject GameOverScreen;
+
     // Use this for initialization
     void Start() {
         SetUpScene();
@@ -96,8 +98,15 @@ public class GameManager : MonoBehaviour {
         }
         
         UpdateUI();
+        CheckIfGameOver();
 
 //        print("Fire in scene: "+fireInScene+". Fire left: "+fireLeft);
+    }
+
+    private void CheckIfGameOver() {
+        if (damage >= 100 && water <= 0) {
+            GameOverScreen.SetActive(true);
+        }
     }
 
     void SetUpScene() {
@@ -105,18 +114,23 @@ public class GameManager : MonoBehaviour {
 //        fireLeft = maxFireNumOfLevel[currentLevel];
         fireLeft = LevelInfos[currentLevel].maxFireNum;
         fireInScene = 0;
+        print(LevelInfos[currentLevel].startFire);
         for (int i = 0; i < LevelInfos[currentLevel].startFire; i++) {
             // Randomly spawn two fires at the beginning of the game
-            RandomlySpawnFire();
+            bool result = RandomlySpawnFire();
+            if (!result) {
+               print("Start fire number is larger than the number of fire limited in the scene");
+            }
         }
         
         
     }
 
-    void RandomlySpawnFire() {
+    bool RandomlySpawnFire() {
         // no empty place to store fire
+        print("Fire left: "+fireLeft);
         if (firePositions.Count >= LevelInfos[currentLevel].FireLimitedInScene || fireLeft <= 0)
-            return;
+            return false;
 
         int firePosition;
         do {
@@ -129,6 +143,7 @@ public class GameManager : MonoBehaviour {
         firePositions.Add(firePosition);
         fireLeft--;
         fireInScene++;
+        return true;
     }
 
     public void FireEliminates() {
@@ -159,6 +174,28 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject fireHolder in fires) {
             foreach (Transform child in fireHolder.transform) {
                 Destroy(child.transform.gameObject);
+            }
+        }
+    }
+
+    public void QuitGame() {
+        Application.Quit();
+    }
+
+    public void RestartCurrentLevel() {
+        GameOverScreen.SetActive(false);
+        SetUpScene();
+        ResetUI();
+    }
+
+    public void MakeEmpty(GameObject window) {
+        for (int i = 0; i < fires.Length; i++) {
+            if (fires[i] == window) {
+                for (int j = 0; j < firePositions.Count; j++) {
+                    if (firePositions[j] == i) {
+                        firePositions.RemoveAt(j);
+                    }
+                }
             }
         }
     }

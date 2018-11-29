@@ -61,7 +61,7 @@ public class Extinguishing : MonoBehaviour
             system.Play();
         }
 
-        if (!isExtinguished&&multiplier <= 0.01f)    // When the fire is extinguished
+        if (!isExtinguished && multiplier <= 0.01f) // When the fire is extinguished
         {
             isExtinguished = true;
             GameManager.FireEliminates();
@@ -69,7 +69,7 @@ public class Extinguishing : MonoBehaviour
             checkbox.SetActive(true);
             checkbox.transform.parent = null;
             audioS.volume = 0;
-
+            GameManager.MakeEmpty(transform.parent.gameObject);
         }
     }
 
