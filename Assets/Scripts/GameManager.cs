@@ -7,6 +7,9 @@ using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour {
+
+    [Header("Music")] [SerializeField] private AudioClip backgroundMusic;
+    
     private int currentLevel = 0;
     [SerializeField] private LevelInfo[] LevelInfos;
     [SerializeField] private GameObject[] fires;
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour {
     internal int PlayerScore = 0;
 
     [SerializeField] private GameObject GameOverScreen;
+
+    private bool gameOver;
 
     // Use this for initialization
     void Start() {
@@ -104,9 +109,17 @@ public class GameManager : MonoBehaviour {
     }
 
     private void CheckIfGameOver() {
-        if (damage >= 100 && water <= 0) {
+    
+        if (damage >= 100 || water <= 0) {
             GameOverScreen.SetActive(true);
+            foreach (GameObject firePosition in fires) {
+                foreach (Transform child in firePosition.transform) {
+                    Destroy(child.gameObject);
+                }
+            }
         }
+
+       
     }
 
     void SetUpScene() {
