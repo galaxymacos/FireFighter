@@ -9,4 +9,6 @@ public class LevelInfo : ScriptableObject {
     public int startFire;
     public int maxFireNum;
     public int FireLimitedInScene;
+    public float AveragePassTime;
+    internal float highScore;
 }

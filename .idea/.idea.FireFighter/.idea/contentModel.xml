@@ -14,6 +14,7 @@
           <e p="ame_nebula.shader" t="Include" />
         </e>
         <e p="Cube.cs" t="Include" />
+        <e p="MainMenu.cs" t="Include" />
         <e p="OptionPanel.cs" t="Include" />
         <e p="SampleScenes" t="Include">
           <e p="Menu" t="Include">

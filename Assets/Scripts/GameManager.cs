@@ -7,12 +7,12 @@ using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour {
-
     [Header("Music")] [SerializeField] private AudioClip backgroundMusic;
-    
-    private int currentLevel = 0;
-    [SerializeField] private LevelInfo[] LevelInfos;
+
+    internal int currentLevel = 0;
+    [SerializeField] internal LevelInfo[] LevelInfos;
     [SerializeField] private GameObject[] fires;
+    internal bool[] hasBeenOnFired;
     [SerializeField] private int[] maxFireNumOfLevel;
     private int fireLeft;
     private int fireInScene;
@@ -25,35 +25,66 @@ public class GameManager : MonoBehaviour {
 
     private List<int> firePositions;
 
-    [Header("UI")]
-    [SerializeField] private TextMeshProUGUI fireText;
+    [Header("PlayerData")] internal int[] highestScores;
+
+    [Header("UI")] [SerializeField] private TextMeshProUGUI fireText;
 
     private int fireNum;
     [SerializeField] private TextMeshProUGUI waterText;
-    private float water = 1;
+    internal float water = 1;
+    [SerializeField] internal float scorePerWaterPercentage = 1000;
     internal bool shootingWater;
     [SerializeField] private float waterLossSpeed = 1f;
     [SerializeField] private TextMeshProUGUI damageText;
-    private float damage = 0;
+    internal float damage = 0;
     [SerializeField] private TextMeshProUGUI timeText;
-    private float minute = 0;
-    private float second = 0;
+    internal float minute = 0;
+    internal float second = 0;
 
-    internal int PlayerScore = 0;
+    internal float PlayerScore = 0;
+    [SerializeField] private int basedScore = 100;
+
 
     [SerializeField] private GameObject GameOverScreen;
 
     private bool gameOver;
+    public float scorePerDamagePercentage = 100;
 
     // Use this for initialization
     void Start() {
+        hasBeenOnFired = new bool[14];
+        highestScores = new int[LevelInfos.Length];
+
         SetUpScene();
         fireSpawnTimeRemain = fireSpawnInterval;
-        print("FireLeft: " + fireLeft + ". Fire in scene " + fireInScene);
         ResetUI();
+
+        if (PlayerPrefs.HasKey("PlayerScore"))
+            SetHighestScore(PlayerPrefs.GetString("PlayerScore"));
+
+        for (int i = 0; i < highestScores.Length; i++) {
+            print("the highest score of level "+(i+1)+" is "+highestScores[i]);
+        }
+    }
+
+    private void SetHighestScore(string password) {
+        string[] separatedPlayerInfo = password.Split('/');
+        for (int i = 0; i < separatedPlayerInfo.Length; i++) {
+            highestScores[i] = Convert.ToInt32(separatedPlayerInfo[i]);
+        }
+    }
+
+    public void UpdatePlayerDataString() {
+        string playerData = string.Empty;
+        for (int i = 0; i < highestScores.Length; i++) {
+            playerData += highestScores[i] + "/";
+        }
+
+        PlayerPrefs.SetString("PlayerScore", playerData);
     }
 
     private void ResetUI() {
+        print("reset");
         fireNum = 0;
         water = 100;
         damage = 0;
@@ -77,12 +108,13 @@ public class GameManager : MonoBehaviour {
         if (Input.GetButton("Fire1")) {
             water -= LevelInfos[currentLevel].waterLossSpeed * Time.deltaTime;
         }
-        waterText.text = (int)water + "%";
+
+        waterText.text = (int) water + "%";
     }
 
     private void UpdateDamageText() {
         damage += fireInScene * LevelInfos[currentLevel].damageSpeed * Time.deltaTime;
-        damageText.text = (int)damage + "%";
+        damageText.text = (int) damage + "%";
     }
 
     private void UpdateTimeText() {
@@ -91,7 +123,8 @@ public class GameManager : MonoBehaviour {
             minute++;
             second -= 60;
         }
-        timeText.text = minute + ":" + (int)second;
+
+        timeText.text = minute + ":" + (int) second;
     }
 
     // Update is called once per frame
@@ -101,7 +134,7 @@ public class GameManager : MonoBehaviour {
             fireSpawnTimeRemain = fireSpawnInterval;
             RandomlySpawnFire();
         }
-        
+
         UpdateUI();
         CheckIfGameOver();
 
@@ -109,17 +142,24 @@ public class GameManager : MonoBehaviour {
     }
 
     private void CheckIfGameOver() {
-    
         if (damage >= 100 || water <= 0) {
-            GameOverScreen.SetActive(true);
-            foreach (GameObject firePosition in fires) {
-                foreach (Transform child in firePosition.transform) {
-                    Destroy(child.gameObject);
-                }
+            GameOver();
+        }
+    }
+
+    public void GameOver() {
+        GameOverScreen.SetActive(true);
+        foreach (GameObject firePosition in fires) {
+            foreach (Transform child in firePosition.transform) {
+                Destroy(child.gameObject);
             }
         }
 
-       
+        foreach (bool curWindow in hasBeenOnFired) {
+            if (!curWindow) {
+                PlayerScore += 500;
+            }
+        }
     }
 
     void SetUpScene() {
@@ -127,21 +167,17 @@ public class GameManager : MonoBehaviour {
 //        fireLeft = maxFireNumOfLevel[currentLevel];
         fireLeft = LevelInfos[currentLevel].maxFireNum;
         fireInScene = 0;
-        print(LevelInfos[currentLevel].startFire);
         for (int i = 0; i < LevelInfos[currentLevel].startFire; i++) {
             // Randomly spawn two fires at the beginning of the game
             bool result = RandomlySpawnFire();
             if (!result) {
-               print("Start fire number is larger than the number of fire limited in the scene");
+                print("Start fire number is larger than the number of fire limited in the scene");
             }
         }
-        
-        
     }
 
     bool RandomlySpawnFire() {
         // no empty place to store fire
-        print("Fire left: "+fireLeft);
         if (firePositions.Count >= LevelInfos[currentLevel].FireLimitedInScene || fireLeft <= 0)
             return false;
 
@@ -150,6 +186,8 @@ public class GameManager : MonoBehaviour {
             firePosition = Random.Range(0, fires.Length);
         } while (firePositions.Contains(firePosition));
 
+        print(firePosition + " " + hasBeenOnFired.Length);
+        hasBeenOnFired[firePosition] = true;
         GameObject curFire = Instantiate(fire, fires[firePosition].transform.position, Quaternion.identity);
         curFire.transform.SetParent(fires[firePosition].transform);
         curFire.SetActive(true);
@@ -168,6 +206,9 @@ public class GameManager : MonoBehaviour {
     }
 
     void MoveToNextLevel() {
+        print("current time "+second);
+//        if (second < LevelInfos[currentLevel].AveragePassTime)
+//            PlayerScore += (LevelInfos[currentLevel].AveragePassTime - second) * basedScore;
         StartCoroutine(DestroyAllFire());
 
         if (Camera.main != null) Camera.main.GetComponent<SimpleMouseRotator>().enabled = false;

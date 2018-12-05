@@ -16,3 +16,4 @@ MonoBehaviour:
   startFire: 3
   maxFireNum: 7
   FireLimitedInScene: 6
+  AveragePassTime: 35
