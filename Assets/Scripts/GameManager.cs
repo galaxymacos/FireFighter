@@ -75,16 +75,17 @@ public class GameManager : MonoBehaviour {
     }
 
     public void UpdatePlayerDataString() {
+        print("Saving player data");
         string playerData = string.Empty;
         for (int i = 0; i < highestScores.Length; i++) {
             playerData += highestScores[i] + "/";
         }
 
+        print("Player data: " + playerData);
         PlayerPrefs.SetString("PlayerScore", playerData);
     }
 
     private void ResetUI() {
-        print("reset");
         fireNum = 0;
         water = 100;
         damage = 0;
