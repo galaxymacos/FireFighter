@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour {
 
 
     [SerializeField] private GameObject GameOverScreen;
+    [SerializeField] private GameObject VictoryScreen;
 
     private bool isGameOver;
 
@@ -143,7 +144,10 @@ public class GameManager : MonoBehaviour {
             UpdateUI();
         CheckIfGameOver();
 
-//        print("Fire in scene: "+fireInScene+". Fire left: "+fireLeft);
+        //        print("Fire in scene: "+fireInScene+". Fire left: "+fireLeft);
+        if (Input.GetButtonDown("JumpToNextLevel")) {
+            MoveToNextLevel();
+        }
     }
 
     private void CheckIfGameOver() {
@@ -206,27 +210,38 @@ public class GameManager : MonoBehaviour {
         fireInScene--;
 //        print("FireLeft: "+fireLeft+". Fire in scene "+fireInScene);
         if (fireLeft <= 0 && fireInScene <= 0) {
-            gameOver = true;
             MoveToNextLevel();
         }
     }
 
     void MoveToNextLevel() {
-//        if (second < LevelInfos[currentLevel].AveragePassTime)
-//            PlayerScore += (LevelInfos[currentLevel].AveragePassTime - second) * basedScore;
+        gameOver = true;
+
+        //        if (second < LevelInfos[currentLevel].AveragePassTime)
+        //            PlayerScore += (LevelInfos[currentLevel].AveragePassTime - second) * basedScore;
         StartCoroutine(DestroyAllFire());
 
         if (Camera.main != null) Camera.main.GetComponent<SimpleMouseRotator>().enabled = false;
-        loadingScreen.SetActive(true);
+        if (currentLevel + 1 >= LevelInfos.Length) {
+            VictoryScreen.SetActive(true);
+
+        }
+        else {
+            loadingScreen.SetActive(true);
+        }
     }
 
     public void GoToNextLevel() {
         loadingScreen.SetActive(false);
         currentLevel++;
-        SetUpScene();
-        ResetUI();
-        if (Camera.main != null) Camera.main.GetComponent<SimpleMouseRotator>().enabled = true;
+
+            SetUpScene();
+            ResetUI();
+            if (Camera.main != null) Camera.main.GetComponent<SimpleMouseRotator>().enabled = true;
+      
     }
+
+
 
     IEnumerator DestroyAllFire() {
         yield return new WaitForSeconds(2);
@@ -242,6 +257,22 @@ public class GameManager : MonoBehaviour {
     }
 
     public void RestartCurrentLevel() {
+        GoToLevel(currentLevel);
+    }
+
+    public void RestartFromBeginning()
+    {
+        VictoryScreen.SetActive(false);
+        currentLevel = 0;
+
+        SetUpScene();
+        ResetUI();
+        if (Camera.main != null) Camera.main.GetComponent<SimpleMouseRotator>().enabled = true;
+    }
+
+    public void GoToLevel(int level)
+    {
+        currentLevel = level;
         GameOverScreen.SetActive(false);
         SetUpScene();
         ResetUI();
