@@ -78,13 +78,11 @@ public class GameManager : MonoBehaviour {
     }
 
     public void UpdatePlayerDataString() {
-        print("Saving player data");
         string playerData = string.Empty;
         for (int i = 0; i < highestScores.Length; i++) {
             playerData += highestScores[i] + "/";
         }
 
-        print("Player data: " + playerData);
         PlayerPrefs.SetString("PlayerScore", playerData);
     }
 
@@ -111,7 +109,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void UpdateWaterText() {
-        if (Input.GetButton("Fire1")) {
+        if (Input.GetButton("ShootWater")) {
             water -= LevelInfos[currentLevel].waterLossSpeed * Time.deltaTime;
         }
 
@@ -214,7 +212,6 @@ public class GameManager : MonoBehaviour {
     }
 
     void MoveToNextLevel() {
-        print("current time " + second);
 //        if (second < LevelInfos[currentLevel].AveragePassTime)
 //            PlayerScore += (LevelInfos[currentLevel].AveragePassTime - second) * basedScore;
         StartCoroutine(DestroyAllFire());

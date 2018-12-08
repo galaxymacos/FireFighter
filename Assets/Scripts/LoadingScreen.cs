@@ -65,7 +65,6 @@ public class LoadingScreen : MonoBehaviour {
         totalScore += windowsScore;
         
         float gameTime = GameManager.second + GameManager.minute * 60;
-        print("Game time is "+GameManager.second);
         float averagePassTime = GameManager.LevelInfos[GameManager.currentLevel].AveragePassTime;
 
         timeText.text = "Time: (" + (int)averagePassTime + " / " +
