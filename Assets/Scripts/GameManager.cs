@@ -219,7 +219,14 @@ public class GameManager : MonoBehaviour {
 
         //        if (second < LevelInfos[currentLevel].AveragePassTime)
         //            PlayerScore += (LevelInfos[currentLevel].AveragePassTime - second) * basedScore;
-        StartCoroutine(DestroyAllFire());
+        foreach (GameObject fireHolder in fires)
+        {
+            foreach (Transform child in fireHolder.transform)
+            {
+                Destroy(child.transform.gameObject);
+            }
+        }
+//        StartCoroutine(DestroyAllFire());
 
         if (Camera.main != null) Camera.main.GetComponent<SimpleMouseRotator>().enabled = false;
         if (currentLevel + 1 >= LevelInfos.Length) {

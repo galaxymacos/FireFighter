@@ -63,13 +63,16 @@ public class Extinguishing : MonoBehaviour
 
         if (!isExtinguished && multiplier <= 0.01f) // When the fire is extinguished
         {
+            // The order is important
             isExtinguished = true;
-            GameManager.FireEliminates();
+            
             GetComponent<ParticleSystemDestroyer>().Stop();
             checkbox.SetActive(true);
             checkbox.transform.parent = null;
             audioS.volume = 0;
             GameManager.MakeEmpty(transform.parent.gameObject);
+            GameManager.FireEliminates();
+            Destroy(gameObject);   
         }
     }
 
