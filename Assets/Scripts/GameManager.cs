@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] private GameObject GameOverScreen;
 
+    private bool isGameOver;
+
     private bool gameOver;
     public float scorePerDamagePercentage = 100;
 
@@ -62,14 +64,15 @@ public class GameManager : MonoBehaviour {
         if (PlayerPrefs.HasKey("PlayerScore"))
             SetHighestScore(PlayerPrefs.GetString("PlayerScore"));
 
-        for (int i = 0; i < highestScores.Length; i++) {
-            print("the highest score of level "+(i+1)+" is "+highestScores[i]);
-        }
+//        for (int i = 0; i < highestScores.Length; i++) {
+//            print("the highest score of level " + (i + 1) + " is " + highestScores[i]);
+//        }
     }
 
     private void SetHighestScore(string password) {
         string[] separatedPlayerInfo = password.Split('/');
         for (int i = 0; i < separatedPlayerInfo.Length; i++) {
+            if (string.IsNullOrEmpty(separatedPlayerInfo[i])) continue;    // Skip empty character
             highestScores[i] = Convert.ToInt32(separatedPlayerInfo[i]);
         }
     }
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void ResetUI() {
+        gameOver = false;
         fireNum = 0;
         water = 100;
         damage = 0;
@@ -100,6 +104,7 @@ public class GameManager : MonoBehaviour {
         UpdateDamageText();
         UpdateTimeText();
     }
+
 
     private void UpdateFireText() {
         fireText.text = fireInScene.ToString();
@@ -136,7 +141,8 @@ public class GameManager : MonoBehaviour {
             RandomlySpawnFire();
         }
 
-        UpdateUI();
+        if (!gameOver)
+            UpdateUI();
         CheckIfGameOver();
 
 //        print("Fire in scene: "+fireInScene+". Fire left: "+fireLeft);
@@ -149,6 +155,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void GameOver() {
+        gameOver = true;
         GameOverScreen.SetActive(true);
         foreach (GameObject firePosition in fires) {
             foreach (Transform child in firePosition.transform) {
@@ -187,7 +194,6 @@ public class GameManager : MonoBehaviour {
             firePosition = Random.Range(0, fires.Length);
         } while (firePositions.Contains(firePosition));
 
-        print(firePosition + " " + hasBeenOnFired.Length);
         hasBeenOnFired[firePosition] = true;
         GameObject curFire = Instantiate(fire, fires[firePosition].transform.position, Quaternion.identity);
         curFire.transform.SetParent(fires[firePosition].transform);
@@ -202,12 +208,13 @@ public class GameManager : MonoBehaviour {
         fireInScene--;
 //        print("FireLeft: "+fireLeft+". Fire in scene "+fireInScene);
         if (fireLeft <= 0 && fireInScene <= 0) {
+            gameOver = true;
             MoveToNextLevel();
         }
     }
 
     void MoveToNextLevel() {
-        print("current time "+second);
+        print("current time " + second);
 //        if (second < LevelInfos[currentLevel].AveragePassTime)
 //            PlayerScore += (LevelInfos[currentLevel].AveragePassTime - second) * basedScore;
         StartCoroutine(DestroyAllFire());

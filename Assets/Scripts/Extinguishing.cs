@@ -75,7 +75,7 @@ public class Extinguishing : MonoBehaviour
 
     void FireRecover()
     {
-        if (multiplier >= ParticleSystemMultiplier.multiplier)
+        if (multiplier >= ParticleSystemMultiplier.multiplier||isExtinguished)
             return;
         multiplier *= increaseFactor;
         audioS.volume += increaseFactor * 2;

@@ -3,8 +3,6 @@
   <component name="ContentModelStore">
     <e p="C:\Users\galax\.Rider2018.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\galax\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_FireFighter.1216355805.00" t="ExcludeRecursive" />
-    <e p="C:\Users\galax\AppData\local\Android\Sdk\platforms\android-28\data\res" t="IncludeRecursive" />
-    <e p="C:\Users\galax\AppData\local\Android\Sdk\sources\android-28" t="IncludeRecursive" />
     <e p="F:\Unity\FireFighter" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
